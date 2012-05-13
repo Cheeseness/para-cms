@@ -200,7 +200,7 @@ function getArticleContent($articlePath, $articleSource)
 								$returnString .= "<a href = '" . $listItem[1] . "'>" . $listItem[0] . "</a>";
 								if ($listItem[2] != "")
 								{
-									$returnString .=  . $linkSeparator . " " . $listItem[2];
+									$returnString .=  $linkSeparator . $listItem[2];
 								}
 							}
 						}
