@@ -34,15 +34,15 @@ $pageTitle = getPageTitle($currentPage);
 
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
 <head>
-	<meta charset=utf-8>
-	<meta name="viewport" content="width=device-width">
+	<meta charset=utf-8 />
+	<meta name="viewport" content="width=device-width" />
 
 	<title><?php echo $pageTitle; ?> &raquo; <?php echo $siteTitle; ?></title>
 
-	<link rel="shortcut icon" href="images/fav.png" type="image/x-icon">
-	<link rel="stylesheet" href="styles/default.css" type="text/css">
+	<link rel="shortcut icon" href="images/fav.png" type="image/x-icon" />
+	<link rel="stylesheet" href="styles/default.css" type="text/css" />
 </head>
 <body>
 <div id = 'wrapper'>
