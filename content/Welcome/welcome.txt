@@ -5,5 +5,5 @@ You can also replace logo.png and background.png found in the images folder, or 
 Enjoy!
 -----
 The Para Website|http://para.jbushproductions.com/|A demonstration install of Para CMS with some information and instructions.
-Para CMS on GitHub|https://github.com/Cheeseness/para-cms|This is (hopefully) where you got Para from. Go here you need help or want to participate in development.
+Para CMS on GitHub|https://github.com/Cheeseness/para-cms|This is (hopefully) where you got Para from. Go here if you need help or want to participate in development.
 
