@@ -19,7 +19,7 @@ if( isset($timeZone) ) date_default_timezone_set($timeZone);
 $contentPath = "content/";
 
 //This is what will immediately follow links in lists before any additional text
-$linkSeparator = " ";
+$linkSeparator = "";
 
 //If you want your twitter feed to be visible on the site, uncomment this and put your twitter username in
 //$twitterAccount = "yourtwitteraccount";

@@ -4,6 +4,6 @@ Your first step should be to edit config.php to replace all the yournamehere stu
 You can also replace logo.png and background.png found in the images folder, or edit/adjust the CSS found in the styles folder.
 Enjoy!
 -----
-The Para Website|http://para.jbushproductions.com/|A demonstration install of Para CMS with some information and instructions.
-Para CMS on GitHub|https://github.com/Cheeseness/para-cms|This is (hopefully) where you got Para from. Go here if you need help or want to participate in development.
+The Para Website|http://para.jbushproductions.com/| A demonstration install of Para CMS with some information and instructions.
+Para CMS on GitHub|https://github.com/Cheeseness/para-cms| This is (hopefully) where you got Para from. Go here if you need help or want to participate in development.
 
