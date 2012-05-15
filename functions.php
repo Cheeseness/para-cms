@@ -46,7 +46,7 @@ function getNavMenu($externalLinks = array())
 
 function buildNavMenu($menuArray)
 {
-	$returnString .= "\n\t<ul>\n";
+	$returnString = "\n\t<ul>\n";
 	foreach ($menuArray as $menuTitle => $menuContent)
 	{
 		$subMenu = "";
