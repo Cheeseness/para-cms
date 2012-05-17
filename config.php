@@ -9,6 +9,12 @@ $defaultPage = "Welcome";
 //If you want your email address to be visible on the site, uncomment this and put your email address in
 //$contactAddress = "youremailaddress@domain.com";
 
+//Uncomment to set the time zone of your choosing, supported ones can be found here: http://php.net/manual/en/timezones.php
+//$timeZone="UTC";
+
+//Don't edit the next line :3
+if( isset($timeZone) ) date_default_timezone_set($timeZone);
+
 //This is the location that para will look in for your folders and .txt files
 $contentPath = "content/";
 
