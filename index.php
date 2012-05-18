@@ -18,6 +18,8 @@ You should have received a copy of the GNU General Public License
 along with Para CMS.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+//This is a variable referenced in config.php. Don't play with it :3
+$externalLinks = array();
 
 include_once("config.php");
 include_once("functions.php");
