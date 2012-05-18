@@ -24,10 +24,7 @@ along with Para CMS.  If not, see <http://www.gnu.org/licenses/>.
 
 /*
 $customStrings = array(
-	"contentmenu"		=> "Contents",
-	"downloadsource"	=> "Download Source",
-	"linktothis"		=> "Link To This",
-	"lastupdated"		=> "Last updated",
+	"translationkey"	=> "Translation";
 );
 */
 

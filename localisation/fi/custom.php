@@ -23,11 +23,8 @@ along with Para CMS.  If not, see <http://www.gnu.org/licenses/>.
 // Uncomment the following block to do that.
 
 /*
-$customStrings = array(
-	"contentmenu"		=> "Contents",
-	"downloadsource"	=> "Download Source",
-	"linktothis"		=> "Link To This",
-	"lastupdated"		=> "Last updated",
+$customLocaleStrings = array(
+	"translationkey"	=> "Translation";
 );
 */
 
