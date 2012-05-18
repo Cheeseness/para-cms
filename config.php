@@ -12,6 +12,9 @@ $defaultPage = "Welcome";
 //Uncomment to set the time zone of your choosing, supported ones can be found here: http://php.net/manual/en/timezones.php
 //$timeZone="UTC";
 
+//Don't edit the next line :3
+if( isset($timeZone) ) date_default_timezone_set($timeZone);
+
 //This is the location that para will look in for your folders and .txt files
 $contentPath = "content/";
 
