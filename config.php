@@ -10,10 +10,16 @@ $defaultPage = "Welcome";
 //$contactAddress = "youremailaddress@domain.com";
 
 //Uncomment to set the time zone of your choosing, supported ones can be found here: http://php.net/manual/en/timezones.php
-//$timeZone="UTC";
+//$timeZone = "UTC";
 
 //Don't edit the next line :3
 if( isset($timeZone) ) date_default_timezone_set($timeZone);
+
+//This is the language/locale your site will use. Take a look at the localisation directory to find out which ones are supported.
+//Format is "<language code>_<region code>"
+//e.g. en_US, en_GB
+//You can also use just the language code, like in the default option below. This'll ignore region-specific files.
+$locale = "en";
 
 //This is the location that para will look in for your folders and .txt files
 $contentPath = "content/";
