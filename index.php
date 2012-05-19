@@ -24,6 +24,7 @@ $externalLinks = array();
 include_once("config.php");
 include_once("functions.php");
 
+$localeStrings = genLocaleStrings($locale);
 
 $currentPage = $defaultPage;
 if (isset($_GET['page']))

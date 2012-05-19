@@ -18,6 +18,35 @@ You should have received a copy of the GNU General Public License
 along with Para CMS.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+function genLocaleStrings($locale)
+{
+	$defaultStrings = array();
+	$customStrings = array();
+	$defaultLocaleStrings = array();
+	$regionLocaleStrings = array();
+	$customLocaleStrings = array();
+
+	include_once("localisation/default.php");
+	include_once("localisation/custom.php");
+	if (empty($locale) === FALSE)
+	{
+		$locale=explode("_", $locale, 2);
+		include_once("localisation/$locale[0]/default.php");
+		if (isset($locale[1]) && empty($locale[1]) === FALSE)
+		{
+			include_once("localisation/$locale[0]/$locale[1].php");
+		}
+		include_once("localisation/$locale[0]/custom.php");
+	}
+
+	return array_merge($defaultStrings, $defaultLocaleStrings, $regionLocaleStrings, $customLocaleStrings);
+}
+
+function getLocaleString($string)
+{
+	global $localeStrings;
+	return $localeStrings["$string"];
+}
 
 function getPageTitle($currentPage)
 {
@@ -123,10 +152,11 @@ function getContentsMenu($currentPage)
 		}
 	}
 	
+	$returnString = "";
 	if (count($contentsList) > 1)
 	{
 		$returnString = "\t<nav id = 'navContents'>\n";
-		$returnString .= "\t\t<h2>Contents</h2>\n";
+		$returnString .= "\t\t<h2>" . getLocaleString("contentmenu") . "</h2>\n";
 		$returnString .= buildContentsMenu($contentsList);
 		$returnString .= "\t</nav>\n";
 	}
@@ -256,7 +286,7 @@ function getArticleContent($articlePath, $articleSource, $headingsOnly = false)
 			return $text;
 		}
 		$returnString .= "\t<h1>" . $text . "</h1>\n";
-		$returnString .= "\t<p class = 'downloadSourceLink'><a href = '" . $contentPath . $articlePath . "/" . $articleSource . "'>&raquo; Download Source</a></p>\n";
+		$returnString .= "\t<p class = 'downloadSourceLink'><a href = '" . $contentPath . $articlePath . "/" . $articleSource . "'>&raquo; " . getLocaleString("downloadsource") . "</a></p>\n";
 	}
 	else
 	{
@@ -266,8 +296,8 @@ function getArticleContent($articlePath, $articleSource, $headingsOnly = false)
 		}
 		
 		$returnString .= "\t<h1>" . substr($text, 0, stripos($text, "\n")) . "</h1>\n";
-		$returnString .= "\t<p class = 'downloadSourceLink'><a href = '" . $contentPath . $articlePath . "/" . $articleSource . "'>&raquo; Download Source</a></p>\n";
-		$returnString .= "\t<p class = 'downloadSourceLink'><a href = '#" . $articleSource . "'>&raquo; Link To This</a></p>\n";
+		$returnString .= "\t<p class = 'downloadSourceLink'><a href = '" . $contentPath . $articlePath . "/" . $articleSource . "'>&raquo; " . getLocaleString("downloadsource") . "</a></p>\n";
+		$returnString .= "\t<p class = 'downloadSourceLink'><a href = '#" . $articleSource . "'>&raquo; " . getLocaleString("linktothis") . "</a></p>\n";
 		
 		$text = substr($text, stripos($text, "\n") + 1);
 		
@@ -342,7 +372,7 @@ function getArticleContent($articlePath, $articleSource, $headingsOnly = false)
 	
 	//Note: This assumes that the server has appropriate and correct timezone information
 //	$returnString .= "<p class = 'modifiedDate'>Last updated on " . gmdate("D, d M Y H:i:s", filemtime($contentPath . $articlePath . "/" . $articleSource)) . " GMT</p>";
-	$returnString .= "<p class = 'modifiedDate'>Last updated: " . gmdate("d M Y", filemtime($contentPath . $articlePath . "/" . $articleSource)) . "</p>";
+	$returnString .= "<p class = 'modifiedDate'>" . getLocaleString("lastupdated") . ": " . gmdate("d M Y", filemtime($contentPath . $articlePath . "/" . $articleSource)) . "</p>";
 	$returnString .= "</article>\n\n";
 	return $returnString;
 }
