@@ -1,4 +1,4 @@
-<?php
+?php
 /*
 Copyright 2012 Josh "Cheeseness" Bush
 
@@ -211,7 +211,7 @@ function getArticleList($currentPage)
 	$folderContents = scandir($contentPath . $currentPage . "/");
 	foreach ($folderContents as $entry)
 	{
-                if (strlen($entry < 4) {
+                if (strlen($entry < 4)) {
                         continue;
                 }
 		if (strripos($entry, ".txt", strlen($entry) - 4) !== false)
