@@ -211,7 +211,7 @@ function getArticleList($currentPage)
 	$folderContents = scandir($contentPath . $currentPage . "/");
 	foreach ($folderContents as $entry)
 	{
-		if (strripos($entry, ".txt") !== false)
+		if (strripos($entry, ".txt", strlen($entry) - 4) !== false)
 		{
 			$returnValue[] = $entry;
 		}
