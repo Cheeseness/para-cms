@@ -342,7 +342,7 @@ function getArticleContent($articlePath, $articleSource, $headingsOnly = false)
 							if ($listItem[0] != "")
 							{
 								$returnString .= "<a href = '" . $listItem[1] . "'>" . $listItem[0] . "</a>";
-								if ($listItem[2] != "")
+								if (isset($listItem[2]) && $listItem[2] != "")
 								{
 									$returnString .=  $linkSeparator . $listItem[2];
 								}
