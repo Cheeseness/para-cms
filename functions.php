@@ -271,6 +271,7 @@ function getArticleContent($articlePath, $articleSource, $headingsOnly = false)
 {
 	GLOBAL $contentPath;
 	GLOBAL $linkSeparator;
+	GLOBAL $showSource;
 	
 	$text = file_get_contents($contentPath . $articlePath . "/" . $articleSource);
 	
@@ -289,7 +290,10 @@ function getArticleContent($articlePath, $articleSource, $headingsOnly = false)
 			return $text;
 		}
 		$returnString .= "\t<h1>" . $text . "</h1>\n";
-		$returnString .= "\t<p class = 'downloadSourceLink'><a href = '" . $contentPath . $articlePath . "/" . $articleSource . "'>&raquo; " . getLocaleString("downloadsource") . "</a></p>\n";
+		if ($showSource)
+		{
+			$returnString .= "\t<p class = 'downloadSourceLink'><a href = '" . $contentPath . $articlePath . "/" . $articleSource . "'>&raquo; " . getLocaleString("downloadsource") . "</a></p>\n";
+		}
 	}
 	else
 	{
@@ -299,7 +303,10 @@ function getArticleContent($articlePath, $articleSource, $headingsOnly = false)
 		}
 		
 		$returnString .= "\t<h1>" . substr($text, 0, stripos($text, "\n")) . "</h1>\n";
-		$returnString .= "\t<p class = 'downloadSourceLink'><a href = '" . $contentPath . $articlePath . "/" . $articleSource . "'>&raquo; " . getLocaleString("downloadsource") . "</a></p>\n";
+		if ($showSource)
+		{
+			$returnString .= "\t<p class = 'downloadSourceLink'><a href = '" . $contentPath . $articlePath . "/" . $articleSource . "'>&raquo; " . getLocaleString("downloadsource") . "</a></p>\n";
+		}
 		$returnString .= "\t<p class = 'downloadSourceLink'><a href = '#" . $articleSource . "'>&raquo; " . getLocaleString("linktothis") . "</a></p>\n";
 		
 		$text = substr($text, stripos($text, "\n") + 1);

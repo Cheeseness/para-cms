@@ -27,6 +27,9 @@ $contentPath = "content/";
 //This is what will immediately follow links in lists before any additional text
 $linkSeparator = "";
 
+//This adds download links for posts. Note that they're in the source format from which Para parses them
+$showSource = true;
+
 //If you want your twitter feed to be visible on the site, uncomment this and put your twitter username in
 //$twitterAccount = "yourtwitteraccount";
 
