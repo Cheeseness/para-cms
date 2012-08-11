@@ -315,7 +315,7 @@ function getArticleContent($articlePath, $articleSource, $headingsOnly = false)
 		$text = explode("\n\n", $text);
 		
 		
-		//for each text/ul pair, explode on ------, and explode the first segment on \n (encapsulating in <p>), and explode the second segment on \n parsing as a ul
+		//for each text/ul pair, explode on -----, and explode the first segment on \n (encapsulating in <p>), and explode the second segment on \n parsing as a ul
 		foreach ($text as $segment)
 		{
 			if (stripos($segment, "-----") !== false)
