@@ -19,7 +19,7 @@ if( isset($timeZone) ) date_default_timezone_set($timeZone);
 //Format is "<language code>_<region code>"
 //e.g. en_US, en_GB
 //You can also use just the language code, like in the default option below. This'll ignore region-specific files.
-$locale = "fi";
+$locale = "en";
 
 //Don't edit the next line :3
 setlocale(LC_ALL, $locale);
