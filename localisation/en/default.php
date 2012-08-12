@@ -18,7 +18,7 @@ You should have received a copy of the GNU General Public License
 along with Para CMS.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-$defaultLocaleStrings = array(
+$strings = array(
 	"contentmenu"		=> "Contents",
 	"downloadsource"	=> "Download Source",
 	"linktothis"		=> "Link To This",

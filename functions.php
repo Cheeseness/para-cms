@@ -26,25 +26,37 @@ function genLocaleStrings($locale)
 	$regionLocaleStrings = array();
 	$customLocaleStrings = array();
 
+	// global default strings
 	include_once("localisation/default.php");
+	$defaultStrings = $strings;
+	// global custom strings
 	include_once("localisation/custom.php");
-	if (empty($locale) === FALSE)
+	$customStrings = $strings;
+	// if our locale isn't empty, we'll use its specific translations as well
+	if (!empty($locale))
 	{
 		$locale=explode("_", $locale, 2);
+		// the locale's default strings
 		include_once("localisation/$locale[0]/default.php");
+		$defaultLocaleStrings = $strings;
 		if (isset($locale[1]) && empty($locale[1]) === FALSE)
 		{
+			// the locale's region-specific strings
 			include_once("localisation/$locale[0]/$locale[1].php");
+			$regionLocaleStrings = $strings;
 		}
+		// custom locale strings
 		include_once("localisation/$locale[0]/custom.php");
+		$customLocaleStrings = $strings;
 	}
 
-	return array_merge($defaultStrings, $defaultLocaleStrings, $regionLocaleStrings, $customLocaleStrings);
+	// the earlier mentioned arrays will be overrided by those latter on the line
+	return array_merge($defaultStrings, $customStrings, $defaultLocaleStrings, $regionLocaleStrings, $customLocaleStrings);
 }
 
 function getLocaleString($string)
 {
-	global $localeStrings;
+	GLOBAL $localeStrings;
 	return $localeStrings["$string"];
 }
 
@@ -272,6 +284,7 @@ function getArticleContent($articlePath, $articleSource, $headingsOnly = false)
 	GLOBAL $contentPath;
 	GLOBAL $linkSeparator;
 	GLOBAL $showSource;
+	GLOBAL $showPostLink;
 	
 	$text = file_get_contents($contentPath . $articlePath . "/" . $articleSource);
 	
@@ -307,7 +320,10 @@ function getArticleContent($articlePath, $articleSource, $headingsOnly = false)
 		{
 			$returnString .= "\t<p class = 'downloadSourceLink'><a href = '" . $contentPath . $articlePath . "/" . $articleSource . "'>&raquo; " . getLocaleString("downloadsource") . "</a></p>\n";
 		}
-		$returnString .= "\t<p class = 'downloadSourceLink'><a href = '#" . $articleSource . "'>&raquo; " . getLocaleString("linktothis") . "</a></p>\n";
+		if ($showPostLink)
+		{
+			$returnString .= "\t<p class = 'downloadSourceLink'><a href = '#" . $articleSource . "'>&raquo; " . getLocaleString("linktothis") . "</a></p>\n";
+		}
 		
 		$text = substr($text, stripos($text, "\n") + 1);
 		
@@ -381,8 +397,7 @@ function getArticleContent($articlePath, $articleSource, $headingsOnly = false)
 	}
 	
 	//Note: This assumes that the server has appropriate and correct timezone information
-//	$returnString .= "<p class = 'modifiedDate'>Last updated on " . gmdate("D, d M Y H:i:s", filemtime($contentPath . $articlePath . "/" . $articleSource)) . " GMT</p>";
-	$returnString .= "<p class = 'modifiedDate'>" . getLocaleString("lastupdated") . ": " . gmdate("d M Y", filemtime($contentPath . $articlePath . "/" . $articleSource)) . "</p>";
+	$returnString .= "<p class = 'modifiedDate'>" . getLocaleString("lastupdated") . ": " . strftime("%d %b %Y", filemtime($contentPath . $articlePath . "/" . $articleSource)) . "</p>";
 	$returnString .= "</article>\n\n";
 	return $returnString;
 }

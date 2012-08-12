@@ -19,7 +19,7 @@ along with Para CMS.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 /*
-$regionLocaleStrings = array(
+$strings = array(
 	"translationkey"	=> "Translation";
 );
 */

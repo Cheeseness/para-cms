@@ -19,7 +19,10 @@ if( isset($timeZone) ) date_default_timezone_set($timeZone);
 //Format is "<language code>_<region code>"
 //e.g. en_US, en_GB
 //You can also use just the language code, like in the default option below. This'll ignore region-specific files.
-$locale = "en";
+$locale = "fi";
+
+//Don't edit the next line :3
+setlocale(LC_ALL, $locale);
 
 //This is the location that para will look in for your folders and .txt files
 $contentPath = "content/";
@@ -30,6 +33,9 @@ $linkSeparator = "";
 //This adds download links for posts. Note that they're in the source format from which Para parses them
 $showSource = true;
 
+//This adds normal links for posts.
+$showPostLink = true;
+
 //If you want your twitter feed to be visible on the site, uncomment this and put your twitter username in
 //$twitterAccount = "yourtwitteraccount";
 
@@ -37,6 +43,6 @@ $showSource = true;
 $externalLinks["Source/Contribute"] = "https://github.com/Cheeseness/para-cms";
 
 //This is the text that appears at the bottom of your site. Replace "yourname" with your name. Feel free to detele the "Powered by Para CMS" part if you don't want it.
-$copyrightText = "&copy; " . date("Y") . " yourname! Powered by <a href = 'http://para.jbushproductions.com/'>Para CMS</a>.";
+$copyrightText = "&copy; " . strftime("%Y") . " yourname! Powered by <a href = 'http://para.jbushproductions.com/'>Para CMS</a>.";
 
 ?>

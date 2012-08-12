@@ -23,7 +23,7 @@ along with Para CMS.  If not, see <http://www.gnu.org/licenses/>.
 // Uncomment the following block to do that.
 
 /*
-$customStrings = array(
+$strings = array(
 	"translationkey"	=> "Translation";
 );
 */
