@@ -23,6 +23,7 @@ $strings = array(
 	"downloadsource"	=> "Lataa lähdekoodi",
 	"linktothis"		=> "Linkki tähän",
 	"lastupdated"		=> "Viimeksi päivitetty",
+	"dateformat"		=> "%d.%m.%Y",
 );
 
 ?>

@@ -23,6 +23,7 @@ $strings = array(
 	"downloadsource"	=> "Download Source",
 	"linktothis"		=> "Link To This",
 	"lastupdated"		=> "Last updated",
+	"dateformat"		=> "%d %b %Y",
 );
 
 ?>
