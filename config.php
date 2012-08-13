@@ -36,6 +36,9 @@ $showSource = true;
 //This adds normal links for posts.
 $showPostLink = true;
 
+//This adds the modification timestamp in the post footer.
+$showTimestamp = true;
+
 //If you want your twitter feed to be visible on the site, uncomment this and put your twitter username in
 //$twitterAccount = "yourtwitteraccount";
 

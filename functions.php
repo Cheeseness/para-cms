@@ -285,6 +285,7 @@ function getArticleContent($articlePath, $articleSource, $headingsOnly = false)
 	GLOBAL $linkSeparator;
 	GLOBAL $showSource;
 	GLOBAL $showPostLink;
+	GLOBAL $showTimestamp;
 	
 	$text = file_get_contents($contentPath . $articlePath . "/" . $articleSource);
 	
@@ -396,8 +397,11 @@ function getArticleContent($articlePath, $articleSource, $headingsOnly = false)
 		}
 	}
 	
-	//Note: This assumes that the server has appropriate and correct timezone information
-	$returnString .= "<p class = 'modifiedDate'>" . getLocaleString("lastupdated") . ": " . strftime(getLocaleString("dateformat"), filemtime($contentPath . $articlePath . "/" . $articleSource)) . "</p>";
+	if ($showTimestamp)
+	{
+		//Note: This assumes that the server has appropriate and correct timezone information
+		$returnString .= "<p class = 'modifiedDate'>" . getLocaleString("lastupdated") . ": " . strftime(getLocaleString("dateformat"), filemtime($contentPath . $articlePath . "/" . $articleSource)) . "</p>";
+	}
 	$returnString .= "</article>\n\n";
 	return $returnString;
 }
