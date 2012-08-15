@@ -114,12 +114,13 @@ function buildNavMenu($menuArray, $currentPage = "")
 			{
 				$menuURL = "index.php?page=" . $originalMenuTitle;
 			}
-			else {
+			else
+			{
 				$menuURL = "#";
 			}
 			$subMenu = buildNavMenu($menuContent, $currentPage);
 			$class = "parentMenu";
-			if (substr($currentPage, 0, stripos($currentPage, "/")) == $menuTitle)
+			if (substr($currentPage, 0, stripos($currentPage, "/")) == $menuTitle || strcmp($currentPage, $menuTitle === 0))
 			{
 				$class .= " current";
 			}
