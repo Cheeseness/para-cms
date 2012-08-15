@@ -87,11 +87,17 @@ function getNavMenu($externalLinks = array(), $currentPage = "")
 
 function buildNavMenu($menuArray, $currentPage = "")
 {
+	GLOBAL $trimPageTitle;
+
 	$returnString = "\n\t<ul>\n";
 	foreach ($menuArray as $menuTitle => $menuContent)
 	{
 		$subMenu = "";
 		$menuTitle = str_replace("_", " ", $menuTitle);
+		if ($trimPageTitle)
+		{
+			$menuTitle = preg_replace("/^(\H+) /", "", $menuTitle);
+		}
 
 		if (is_array($menuContent))
 		{
