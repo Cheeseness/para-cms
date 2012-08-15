@@ -68,6 +68,7 @@ function getPageTitle($currentPage)
 	if ($trimPageTitle)
 	{
 		$returnString = preg_replace("/^(\H+) /", "", $returnString);
+		$returnString = preg_replace("#/(\H+) #", "/", $returnString);
 	}
 	
 	return $returnString;
@@ -94,11 +95,13 @@ function getNavMenu($externalLinks = array(), $currentPage = "")
 function buildNavMenu($menuArray, $currentPage = "")
 {
 	GLOBAL $trimPageTitle;
+	GLOBAL $showParentInMenu;
 
 	$returnString = "\n\t<ul>\n";
 	foreach ($menuArray as $menuTitle => $menuContent)
 	{
 		$subMenu = "";
+		$originalMenuTitle = $menuTitle;
 		$menuTitle = str_replace("_", " ", $menuTitle);
 		if ($trimPageTitle)
 		{
@@ -107,7 +110,13 @@ function buildNavMenu($menuArray, $currentPage = "")
 
 		if (is_array($menuContent))
 		{
-			$menuURL = "#";
+			if ($showParentInMenu)
+			{
+				$menuURL = "index.php?page=" . $originalMenuTitle;
+			}
+			else {
+				$menuURL = "#";
+			}
 			$subMenu = buildNavMenu($menuContent, $currentPage);
 			$class = "parentMenu";
 			if (substr($currentPage, 0, stripos($currentPage, "/")) == $menuTitle)

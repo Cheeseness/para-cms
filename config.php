@@ -42,6 +42,9 @@ $showTimestamp = true;
 //This'll strip the text up to the first space of your page title. Useful for arranging the menu bar as e.g. 00_Home, 10_About_Us, etc.
 $trimPageTitle = false;
 
+//This'll make the parent pages that have subpages be accessible through the nav menu.
+$showParentInMenu = false;
+
 //If you want your twitter feed to be visible on the site, uncomment this and put your twitter username in
 //$twitterAccount = "yourtwitteraccount";
 
