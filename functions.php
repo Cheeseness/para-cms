@@ -67,7 +67,7 @@ function getPageTitle($currentPage)
 	$returnString = str_replace("_", " ", $currentPage);
 	if ($trimPageTitle)
 	{
-		$menuTitle = preg_replace("/^(\H+) /", "", $menuTitle);
+		$returnString = preg_replace("/^(\H+) /", "", $returnString);
 	}
 	
 	return $returnString;
