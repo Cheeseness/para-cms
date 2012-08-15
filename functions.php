@@ -120,7 +120,7 @@ function buildNavMenu($menuArray, $currentPage = "")
 			}
 			$subMenu = buildNavMenu($menuContent, $currentPage);
 			$class = "parentMenu";
-			if (substr($currentPage, 0, stripos($currentPage, "/")) == $menuTitle || strcmp($currentPage, $menuTitle === 0))
+			if (substr($currentPage, 0, stripos($currentPage, "/")) == $menuTitle || substr($currentPage, 0) == $menuTitle)
 			{
 				$class .= " current";
 			}
