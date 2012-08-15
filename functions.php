@@ -62,7 +62,13 @@ function getLocaleString($string)
 
 function getPageTitle($currentPage)
 {
+	GLOBAL $trimPageTitle;
+
 	$returnString = str_replace("_", " ", $currentPage);
+	if ($trimPageTitle)
+	{
+		$menuTitle = preg_replace("/^(\H+) /", "", $menuTitle);
+	}
 	
 	return $returnString;
 }
