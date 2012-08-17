@@ -37,7 +37,7 @@ $pageTitle = getPageTitle($currentPage);
 
 ?>
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="<?php echo str_replace("_", "-", $locale); ?>">
 <head>
 	<meta charset=utf-8 />
 	<meta name="viewport" content="width=device-width" />
