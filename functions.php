@@ -200,7 +200,7 @@ function getContentsMenu($currentPage)
 
 function buildContentsMenu($contentsList)
 {
-	$returnString .= "\t\t<ol>\n";
+	$returnString = "\t\t<ol>\n";
 	
 	foreach($contentsList as $url => $title)
 	{
