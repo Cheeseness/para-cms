@@ -1,6 +1,6 @@
 <?php
 /*
-Copyright 2012 Josh "Cheeseness" Bush
+Copyright 2012 Para CMS contributors (see AUTHORS)
 
 This file is part of Para CMS.
 
