@@ -42,7 +42,7 @@ $pageTitle = getPageTitle($currentPage);
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width" />
 
-	<title><?php echo $pageTitle; ?> &#187; <?php echo $siteTitle; ?></title>
+	<title><?php echo $pageTitle; ?> » <?php echo $siteTitle; ?></title>
 
 	<link rel="shortcut icon" href="images/fav.png" type="image/x-icon" />
 	<link rel="stylesheet" href="styles/default.css" type="text/css" />
