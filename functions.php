@@ -152,7 +152,7 @@ function buildNavMenu($menuArray, $currentPage = "")
 			$returnString .= "\t\t<li class = '" . $class . "'><a href = '". $menuURL . "'>" . $menuTitle;
 			if (stripos($class, "external") !== false)
 			{
-				$returnString .= " &raquo;";
+				$returnString .= " &#187;";
 			}
 			$returnString .= "</a></li>\n";
 		}
@@ -316,7 +316,7 @@ function getArticleContent($articlePath, $articleSource, $headingsOnly = false)
 		return getAllArticles($articlePath, $headingsOnly);
 	}
 	
-	$returnString = "<article id = " . $articleSource . ">\n";
+	$returnString = "<article id = '" . $articleSource . "'>\n";
 	
 	//Pull off the heading (it's always the first line)
 	if (stripos($text, "\n") === false)
@@ -328,7 +328,7 @@ function getArticleContent($articlePath, $articleSource, $headingsOnly = false)
 		$returnString .= "\t<h1>" . $text . "</h1>\n";
 		if ($showSource)
 		{
-			$returnString .= "\t<p class = 'downloadSourceLink'><a href = '" . $contentPath . $articlePath . "/" . $articleSource . "'>&raquo; " . getLocaleString("downloadsource") . "</a></p>\n";
+			$returnString .= "\t<p class = 'downloadSourceLink'><a href = '" . $contentPath . $articlePath . "/" . $articleSource . "'>&#187; " . getLocaleString("downloadsource") . "</a></p>\n";
 		}
 	}
 	else
@@ -341,11 +341,11 @@ function getArticleContent($articlePath, $articleSource, $headingsOnly = false)
 		$returnString .= "\t<h1>" . substr($text, 0, stripos($text, "\n")) . "</h1>\n";
 		if ($showSource)
 		{
-			$returnString .= "\t<p class = 'downloadSourceLink'><a href = '" . $contentPath . $articlePath . "/" . $articleSource . "'>&raquo; " . getLocaleString("downloadsource") . "</a></p>\n";
+			$returnString .= "\t<p class = 'downloadSourceLink'><a href = '" . $contentPath . $articlePath . "/" . $articleSource . "'>&#187; " . getLocaleString("downloadsource") . "</a></p>\n";
 		}
 		if ($showPostLink)
 		{
-			$returnString .= "\t<p class = 'downloadSourceLink'><a href = '#" . $articleSource . "'>&raquo; " . getLocaleString("linktothis") . "</a></p>\n";
+			$returnString .= "\t<p class = 'downloadSourceLink'><a href = '#" . $articleSource . "'>&#187; " . getLocaleString("linktothis") . "</a></p>\n";
 		}
 		
 		$text = substr($text, stripos($text, "\n") + 1);
