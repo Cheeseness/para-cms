@@ -52,6 +52,6 @@ $showParentInMenu = false;
 $externalLinks["Source/Contribute"] = "https://github.com/Cheeseness/para-cms";
 
 //This is the text that appears at the bottom of your site. Replace "yourname" with your name. Feel free to delete the "Powered by Para CMS" part if you don't want it.
-$copyrightText = "&copy; " . strftime("%Y") . " yourname! Powered by <a href = 'http://para.jbushproductions.com/'>Para CMS</a>.";
+$copyrightText = "© " . strftime("%Y") . " yourname! Powered by <a href = 'http://para.jbushproductions.com/'>Para CMS</a>.";
 
 ?>

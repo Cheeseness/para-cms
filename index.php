@@ -1,6 +1,6 @@
 <?php
 /*
-Copyright 2012 Josh "Cheeseness" Bush
+Copyright 2012 Para CMS contributors (see AUTHORS)
 
 This file is part of Para CMS.
 
@@ -39,10 +39,10 @@ $pageTitle = getPageTitle($currentPage);
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="<?php echo str_replace("_", "-", $locale); ?>">
 <head>
-	<meta charset=utf-8 />
+	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width" />
 
-	<title><?php echo $pageTitle; ?> &raquo; <?php echo $siteTitle; ?></title>
+	<title><?php echo $pageTitle; ?> » <?php echo $siteTitle; ?></title>
 
 	<link rel="shortcut icon" href="images/fav.png" type="image/x-icon" />
 	<link rel="stylesheet" href="styles/default.css" type="text/css" />

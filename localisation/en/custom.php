@@ -1,6 +1,6 @@
 <?php
 /*
-Copyright 2012 Melker "meklu" Narikka
+Copyright 2012 Para CMS contributors (see AUTHORS)
 
 This file is part of Para CMS.
 

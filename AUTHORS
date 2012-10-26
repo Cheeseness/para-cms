@@ -1,0 +1,24 @@
+AUTHORS:
+	Josh "Cheeseness" Bush
+		./README.md
+		./config.php
+		./content/Welcome/welcome.txt
+		./functions.php
+		./images/background.png
+		./images/fav.png
+		./images/logo.png
+		./index.php
+		./styles/default.css
+	Melker "meklu" Narikka
+		./config.php
+		./content/Welcome/welcome.txt
+		./functions.php
+		./index.php
+		./localisation/custom.php
+		./localisation/default.php
+		./localisation/en/US.php
+		./localisation/en/custom.php
+		./localisation/en/default.php
+		./localisation/fi/FI.php
+		./localisation/fi/custom.php
+		./localisation/fi/default.php
