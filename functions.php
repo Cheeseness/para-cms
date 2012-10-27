@@ -18,6 +18,22 @@ You should have received a copy of the GNU General Public License
 along with Para CMS.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+// a function for countering directoty traversal
+function deTraverse($path)
+{
+	$arr = explode('/', $path);
+	foreach ($arr as $key => $value) {
+		if ($value === "..") {
+			unset($arr[$key]);
+		}
+		unset($key);
+		unset($value);
+	}
+	$path = implode('/', $arr);
+	$path = trim($path, '/');
+	return $path;
+}
+
 function genLocaleStrings($locale)
 {
 	$defaultStrings = array();
@@ -65,6 +81,7 @@ function getPageTitle($currentPage)
 	GLOBAL $trimPageTitle;
 
 	$returnString = str_replace("_", " ", $currentPage);
+	$returnString = htmlspecialchars($returnString);
 	if ($trimPageTitle)
 	{
 		$returnString = preg_replace("/^(\H+) /", "", $returnString);

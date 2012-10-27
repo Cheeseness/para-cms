@@ -31,6 +31,8 @@ if (isset($_GET['page']))
 {
 	//TODO: Some sanitising please
 	$currentPage = $_GET['page'];
+	// de-traverse
+	$currentPage = deTraverse($currentPage);
 }
 
 $pageTitle = getPageTitle($currentPage);
