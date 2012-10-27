@@ -65,6 +65,7 @@ function getPageTitle($currentPage)
 	GLOBAL $trimPageTitle;
 
 	$returnString = str_replace("_", " ", $currentPage);
+	$returnString = htmlspecialchars($returnString);
 	if ($trimPageTitle)
 	{
 		$returnString = preg_replace("/^(\H+) /", "", $returnString);
