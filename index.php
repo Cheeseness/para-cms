@@ -21,7 +21,17 @@ along with Para CMS.  If not, see <http://www.gnu.org/licenses/>.
 //This is a variable referenced in config.php. Don't play with it :3
 $externalLinks = array();
 
-include_once("config.php");
+
+//To make upgrading easier, let's move all of Para's default settings out to a base file which will only be used if custom settings are not found. Site maintainers will still need to copy new config options across though.
+if (!file_exists("config.php")
+{
+	include_once("config_default.php");
+}
+else
+{
+	include_once("config.php");
+}
+
 include_once("functions.php");
 
 $localeStrings = genLocaleStrings($locale);
@@ -39,15 +49,33 @@ $pageTitle = getPageTitle($currentPage);
 
 ?>
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="<?php echo str_replace("_", "-", $locale); ?>">
+<html xmlns='http://www.w3.org/1999/xhtml' lang='<?php echo str_replace("_", "-", $locale); ?>'>
 <head>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width" />
+	<meta charset='utf-8' />
+	<meta name='viewport' content='width=device-width' />
 
 	<title><?php echo $pageTitle; ?> » <?php echo $siteTitle; ?></title>
 
-	<link rel="shortcut icon" href="images/fav.png" type="image/x-icon" />
-	<link rel="stylesheet" href="styles/default.css" type="text/css" />
+	<link rel='shortcut icon' href='images/fav.png' type='image/x-icon' />
+	<?php
+	if (isset($customCSS))
+	{
+		foreach ($customCSS as $cssFile)
+		{
+			echo "\t<link rel='stylesheet' href='" . $cssFile . "' type='text/css' />\n";
+		}
+	}
+	?>
+	<script type = 'text/javascript' src = 'scripts/default.js'></script>
+	<?php
+	if (isset($customJS))
+	{
+		foreach ($customJS as $jsFile)
+		{
+			echo "\t<script type='text/javascript' src='" . $jsFile . "'></script>\n";
+		}
+	}
+	?>
 </head>
 <body>
 <div id = 'wrapper'>

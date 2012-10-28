@@ -141,7 +141,7 @@ function buildNavMenu($menuArray, $currentPage = "")
 			{
 				$class .= " current";
 			}
-			$returnString .= "\t\t<li class = '" . $class. "'><a href = '". $menuURL . "'>" . $menuTitle . "</a>";
+			$returnString .= "\t\t<li class = '" . $class. "' id = '" . $originalMenuTitle . "'><a href = '". $menuURL . "'>" . $menuTitle . "</a>";
 			$returnString .= $subMenu;
 			$returnString .= "</li>\n";
 

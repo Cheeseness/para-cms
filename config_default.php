@@ -51,6 +51,12 @@ $showParentInMenu = false;
 //If you want to have links to external sites in your menu, add them here using the same format as the next line. You can comment out or delete this one if want.
 $externalLinks["Source/Contribute"] = "https://github.com/Cheeseness/para-cms";
 
+//If you want to have additional or different styles, you can add them here using the same format as the next line. You can comment out or delete this one if you want.
+$customCSS[] = "styles/default.css";
+
+//If you want to have additional or different javascripts, you can add them here using the same format as the next line. You can comment out or delete this one if you want.
+$customJS[] = "scripts/default.js";
+
 //This is the text that appears at the bottom of your site. Replace "yourname" with your name. Feel free to delete the "Powered by Para CMS" part if you don't want it.
 $copyrightText = "© " . strftime("%Y") . " yourname! Powered by <a href = 'http://para.jbushproductions.com/'>Para CMS</a>.";
 
