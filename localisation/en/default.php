@@ -24,6 +24,12 @@ $strings = array(
 	"linktothis"		=> "Link To This",
 	"lastupdated"		=> "Last updated",
 	"dateformat"		=> "%d %b %Y",
+	"flagranterrortitle"	=> "Flagrant Error!",
+	"flagranterrortext"	=> "Something went very wrong or you're trying to view something that doesn't exist. Please try using your browser's back button or returning to the <a href = 'index.php'>" . $siteTitle . " main page</a>",
+	"flagranterrordetails"	=> "Bad URL or configuration.",
+	"articleerrortitle"	=> "Article Not Found",
+	"articleerrortext"	=> "There was an error while trying to display an article.",
+	"articleerrordetails"	=> "The article requested was not found on the content path: ",
 );
 
 ?>

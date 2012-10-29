@@ -235,6 +235,11 @@ function getSubfolders ($currentPath = "")
 	GLOBAL $contentPath;
 	$returnValue = array();
 	
+	//I don't see this happening, but just in case, let's bail if we can't find anything
+	if (!file_exists($contentPath . $currentPath. "/"))
+	{
+		return $returnValue;
+	}
 	$folderContents = scandir($contentPath . $currentPath);
 	foreach ($folderContents as $entry)
 	{
@@ -257,9 +262,17 @@ function getSubfolders ($currentPath = "")
 function getArticleList($currentPage)
 {
 	GLOBAL $contentPath;
+	GLOBAL $errorState;
 
 	//TODO: We want reverse lexical ordering for news items (assuming we're using YYYY-MM-DD prefixing for filenames), but normal ordering for everything else
 	$returnValue = array();
+
+	//When somebody gets a 
+	if (!file_exists($contentPath . $currentPage . "/"))
+	{
+		$errorState = 1;
+		return $returnValue;
+	}
 	$folderContents = scandir($contentPath . $currentPage . "/");
 	foreach ($folderContents as $entry)
 	{
@@ -319,6 +332,20 @@ function getAllArticles($articlePath, $headingsOnly = false)
 	}
 }
 
+
+//TODO: This needs to be more generic.
+function getArticleError($id, $title, $text, $detail)
+{
+	//TODO: Localisation
+	//TODO: It'd be nice to have something generic based on $errorState (an array of messages for which $errorState was the index?) in addition to the passed arguments
+	$returnString = "<article class = 'error' id = '" . $id . "'>\n";
+	$returnString .= "\t<h1>" . $title . "</h1>\n";
+	$returnString .= "\t<p class = 'errorDescription'>" . $text . "</p>\n";
+	$returnString .= "\t<p class = 'errorDetail'>" . $detail . "</p>\n";
+	$returnString .= "</article>\n";
+	return $returnString;
+}
+
 function getArticleContent($articlePath, $articleSource, $headingsOnly = false)
 {
 	GLOBAL $contentPath;
@@ -327,7 +354,29 @@ function getArticleContent($articlePath, $articleSource, $headingsOnly = false)
 	GLOBAL $showPostLink;
 	GLOBAL $showTimestamp;
 	
+	//If the article we're trying to show doesn't exist, let's tell someone about it
+	if (!file_exists($contentPath . $articlePath . "/" . $articleSource))
+	{
+		if ($headingsOnly)
+		{
+			return "Error";
+		}
+		
+		return getArticleError($articleSource, getLocaleString("articleerrortitle"), getLocaleString("articleerrortext"), getLocaleString("articleerrordetails") . $articlePath . "/" . $articleSource);
+	}
 	$text = file_get_contents($contentPath . $articlePath . "/" . $articleSource);
+	
+	
+	if ($text === false)
+	{
+		//TODO: Localisation
+		if ($headingsOnly)
+		{
+			return "Error";
+		}
+		return getArticleError($articleSource, getLocaleString("articleerrortitle"), getLocaleString("articleerrortext"), getLocaleString("articleerrordetails") . $articlePath . "/" . $articleSource);
+
+	}
 	
 	if (stripos($text, "_EVERYTHING_") !== false)
 	{

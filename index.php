@@ -48,6 +48,8 @@ if (isset($_GET['page']))
 
 $pageTitle = getPageTitle($currentPage);
 
+$errorState = 0;
+
 ?>
 <!DOCTYPE html>
 <html xmlns='http://www.w3.org/1999/xhtml' lang='<?php echo str_replace("_", "-", $locale); ?>'>
@@ -92,13 +94,20 @@ echo getContentsMenu($currentPage);
 
 <div id = 'content'>
 <?php
-//TODO: Pagination?
-$articleList = getArticleList($currentPage);
-foreach ($articleList as $article)
-{
-	echo getArticleContent($currentPage, $article);
-}
 
+if ($errorState > 0)
+{
+	echo getArticleError("flagrantError", getLocaleString("flagranterrortitle"), getLocaleString("flagranterrortext"), getLocaleString("flagranterrordetails"));
+}
+else
+{
+	//TODO: Pagination?
+	$articleList = getArticleList($currentPage);
+	foreach ($articleList as $article)
+	{
+		echo getArticleContent($currentPage, $article);
+	}
+}
 ?>
 </div>
 <?php

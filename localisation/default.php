@@ -24,6 +24,12 @@ $strings = array(
 	"linktothis"		=> "A link to the post",
 	"lastupdated"		=> "The time the post was last updated",
 	"dateformat"		=> "The date format the posts will show, passed to strftime()",
+	"flagranterrortitle"	=> "A title for the sort of error you'll get from a bad URL or a bad content path.",
+	"flagranterrortext"	=> "A description and resolution for the sort of error you'll get from a bad URL or a bad content path.",
+	"flagranterrordetails"	=> "Technical details for the sort of error you'll get from a bad URL or a bad content path.",
+	"articleerrortitle"	=> "A title for the error message when an expected article is not found.",
+	"articleerrortext"	=> "A description and resolution for the error message when an expected article is not found.",
+	"articleerrordetails"	=> "Technical details for the error message when an expected article is not found (article path is appended automatically).",
 );
 
 ?>
