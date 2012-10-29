@@ -1,7 +1,7 @@
 AUTHORS:
 	Josh "Cheeseness" Bush
 		./README.md
-		./config.php
+		./config_default.php
 		./content/Welcome/welcome.txt
 		./functions.php
 		./images/background.png
@@ -10,7 +10,7 @@ AUTHORS:
 		./index.php
 		./styles/default.css
 	Melker "meklu" Narikka
-		./config.php
+		./config_default.php
 		./content/Welcome/welcome.txt
 		./functions.php
 		./index.php

@@ -19,11 +19,11 @@ along with Para CMS.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 $strings = array(
-	"contentmenu"		=> "Contents",
-	"downloadsource"	=> "Download Source",
-	"linktothis"		=> "Link To This",
-	"lastupdated"		=> "Last updated",
-	"dateformat"		=> "%d %b %Y",
+	"contentmenu"		=> "The menu that lists the posts on a page",
+	"downloadsource"	=> "A link for downloading the Para-formatted text of a post",
+	"linktothis"		=> "A link to the post",
+	"lastupdated"		=> "The time the post was last updated",
+	"dateformat"		=> "The date format the posts will show, passed to strftime()",
 );
 
 ?>

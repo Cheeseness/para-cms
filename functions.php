@@ -18,7 +18,7 @@ You should have received a copy of the GNU General Public License
 along with Para CMS.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-// a function for countering directoty traversal
+// a function for countering directory traversal
 function deTraverse($path)
 {
 	$arr = explode('/', $path);
