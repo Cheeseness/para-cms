@@ -159,14 +159,15 @@ function buildNavMenu($menuArray, $currentPage = "")
 			
 			if ((stripos($menuURL, "http://") === false) && (stripos($menuURL, "https://") === false))
 			{
-				$menuURL = "index.php?page=" . $menuURL;
+				$fullMenuURL = "index.php?page=" . $menuURL;
 			}
 			else
 			{
+				$fullMenuURL = $menuURL;
 				$class .= " external";
 			}
 			
-			$returnString .= "\t\t<li class = '" . $class . "'><a href = '". $menuURL . "'>" . $menuTitle;
+			$returnString .= "\t\t<li class = '" . $class . "' id = '" . $menuURL . "'><a href = '". $fullMenuURL . "'>" . $menuTitle;
 			if (stripos($class, "external") !== false)
 			{
 				$returnString .= " »";

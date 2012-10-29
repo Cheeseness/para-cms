@@ -23,7 +23,8 @@ $externalLinks = array();
 
 
 //To make upgrading easier, let's move all of Para's default settings out to a base file which will only be used if custom settings are not found. Site maintainers will still need to copy new config options across though.
-if (!file_exists("config.php")
+//Longer term, we may want to look at including this by default and having the custom file's variable assignments override the defaults
+if (!file_exists("config.php"))
 {
 	include_once("config_default.php");
 }
@@ -116,13 +117,13 @@ new TWTR.Widget({
   height: 500,
   theme: {
     shell: {
-      background: '#a0a078',
-      color: '#efefef'
+      background: '<?php echo $twitterBackgroundColour; ?>',
+      color: '<?php echo $twitterLinkColour; ?>'
     },
     tweets: {
-      background: '#a0a078',
-      color: '#505020',
-      links: '#efefef'
+      background: '#a0a078', <?php echo $twitterBackgroundColour; ?>
+      color: '#505020',  <?php echo $twitterTextColour; ?>
+      links: '#efefef' <?php echo $twitterLinkColour; ?>
     }
   },
   features: {
