@@ -1,5 +1,7 @@
 Changes since 0.1:
-------------------
+=========
+
+See the following URL for a full commit history: https://github.com/Cheeseness/para-cms/commits/
 
 * Fixed XSS vulnerability allowing for arbitrary code execution
 * Fixed directory traversal vulnerability allowing content to be read from outside the content path
