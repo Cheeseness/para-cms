@@ -130,9 +130,9 @@ new TWTR.Widget({
       color: '<?php echo $twitterLinkColour; ?>'
     },
     tweets: {
-      background: '#a0a078', <?php echo $twitterBackgroundColour; ?>
-      color: '#505020',  <?php echo $twitterTextColour; ?>
-      links: '#efefef' <?php echo $twitterLinkColour; ?>
+      background: '<?php echo $twitterBackgroundColour; ?>',
+      color: '<?php echo $twitterTextColour; ?>',
+      links: '<?php echo $twitterLinkColour; ?>'
     }
   },
   features: {
