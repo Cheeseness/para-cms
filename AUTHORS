@@ -8,6 +8,8 @@ AUTHORS:
 		./images/fav.png
 		./images/logo.png
 		./index.php
+		./localisation/default.php
+		./localisation/en/default.php
 		./styles/default.css
 	Melker "meklu" Narikka
 		./config_default.php
