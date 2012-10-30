@@ -17,6 +17,7 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with Para CMS.  If not, see <http://www.gnu.org/licenses/>.
 */
+GLOBAL $defaultPage;
 
 $strings = array(
 	"contentmenu"		=> "Sisällysluettelo",
@@ -24,6 +25,12 @@ $strings = array(
 	"linktothis"		=> "Linkki tähän",
 	"lastupdated"		=> "Viimeksi päivitetty",
 	"dateformat"		=> "%d.%m.%Y",
+	"flagranterrortitle"	=> "Huutava virhe!",
+	"flagranterrortext"	=> "Jokin meni erittäin pahasti pieleen tai yrität tarkastella jotakin olematonta. Yritä painaa selaimesi takaisin-nappia tai palaa sivulle <a href = 'index.php'>" . getPageTitle($defaultPage) . "</a>",
+	"flagranterrordetails"	=> "Huono osoite tai konfiguraatio.",
+	"articleerrortitle"	=> "Artikkelia ei löytynyt",
+	"articleerrortext"	=> "Virhe yritettäessä näyttää artikkelia.",
+	"articleerrordetails"	=> "Pyydettyä artikkelia ei löytynyt sisältöpolusta : ",
 );
 
 ?>
