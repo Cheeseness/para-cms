@@ -9,10 +9,10 @@ See the following URL for a full commit history: https://github.com/Cheeseness/p
 * Added Finnish and English localisations
 * Added AUTHORS file to track contributions
 * Added CHANGES file to track release changes
-* Added error handling for bad URLS, bad content paths and improperly detected articles
+* Added error handling for bad URLs, bad content paths and improperly detected articles
 * Added id attributes to navigation menu items
 * Added support for multiple CSS files
-* Added support for multiple Javscript files
+* Added support for multiple JavaScript files
 * Added config_default.php to ease upgrade process
 * Added config.php option for enabling article timestamps
 * Added config.php option for enabling article download links
