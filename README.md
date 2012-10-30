@@ -33,10 +33,11 @@ Brief Installation Instructions
 Brief Upgrade Instructions (from v 0.1  to v 0.2)
 =========
 
-1. Rename styles/default.css if it has been modified at all (this will be used in step 4)
+1. Rename styles/default.css if it has been modified at all (this will be used in step 4) and back up images/background.png, images/fav.png and images/logo.png if they have been changed (these will be used in step 5)
 2. Extract para-cms over the top of the previous para-cms install, excluding the content folder
 3. Copy new configuration options (see below) from config_default.php to config.php, or alternatively, copy config_default.php to config.php and edit as needed
 4. Add the renamed CSS file to $customCSS[] in config.php
+5. Restore any backed up images to the images folder
 
 New config.php settings:
 
