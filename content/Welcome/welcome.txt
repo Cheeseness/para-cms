@@ -1,6 +1,6 @@
 Welcome To Para!
 Congratulations! You've set up your own Para CMS installation. It's a little empty at the moment, but with a bit of content and a little love, you'll be right to go!
-Your first step should be to edit config.php to replace all the yournamehere stuff and set your site's title. Then you can look at setting up your folder structure and add in a couple of .txt files formatted similarly to this one.
+Your first step should be to copy config_default.php to config.php and replace all the yournamehere stuff as well as set your site's title. Then you can look at setting up your folder structure in your content path and add in a couple of .txt files formatted similarly to this one.
 You can also replace logo.png and background.png found in the images folder, or edit/adjust the CSS found in the styles folder.
 Enjoy!
 -----
