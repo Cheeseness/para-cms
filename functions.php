@@ -87,25 +87,25 @@ function getPageTitle($currentPage)
 		$returnString = preg_replace("/^(\H+) /", "", $returnString);
 		$returnString = preg_replace("#/(\H+) #", "/", $returnString);
 	}
-	
+
 	return $returnString;
 }
 
 function getNavMenu($externalLinks = array(), $currentPage = "")
 {
 	$returnString = "";
-	
+
 	//Parse subfolders
 	$menuArray = getSubfolders();
 
 	//Append external links
 	$menuArray = array_merge($menuArray, $externalLinks);
-	
+
 	//Build nav and ul markup
 	$returnString = "<nav id = 'navPrimary'>\n";
 	$returnString .= buildNavMenu($menuArray, $currentPage);
 	$returnString .= "</nav>\n\n";
-	
+
 	return $returnString;
 }
 
@@ -156,7 +156,7 @@ function buildNavMenu($menuArray, $currentPage = "")
 			{
 				$class .= " current";
 			}
-			
+
 			if ((stripos($menuURL, "http://") === false) && (stripos($menuURL, "https://") === false))
 			{
 				$fullMenuURL = "index.php?page=" . $menuURL;
@@ -166,7 +166,7 @@ function buildNavMenu($menuArray, $currentPage = "")
 				$fullMenuURL = $menuURL;
 				$class .= " external";
 			}
-			
+
 			$returnString .= "\t\t<li class = '" . $class . "' id = '" . $menuURL . "'><a href = '". $fullMenuURL . "'>" . $menuTitle;
 			if (stripos($class, "external") !== false)
 			{
@@ -175,9 +175,9 @@ function buildNavMenu($menuArray, $currentPage = "")
 			$returnString .= "</a></li>\n";
 		}
 	}
-	
+
 	$returnString .= "\t</ul>\n";
-	
+
 	return $returnString;
 }
 
@@ -185,7 +185,7 @@ function getContentsMenu($currentPage)
 {
 	//FIXME: I didn't really do any design work for this. It feels a lot like a hack.
 	$articleList = getArticleList($currentPage);
-	
+
 	$tempList = array();
 	foreach($articleList as $article)
 	{
@@ -203,7 +203,7 @@ function getContentsMenu($currentPage)
 			$contentsList[$article] = $heading;
 		}
 	}
-	
+
 	$returnString = "";
 	if (count($contentsList) > 1)
 	{
@@ -212,21 +212,21 @@ function getContentsMenu($currentPage)
 		$returnString .= buildContentsMenu($contentsList);
 		$returnString .= "\t</nav>\n";
 	}
-	
+
 	return $returnString;
 }
 
 function buildContentsMenu($contentsList)
 {
 	$returnString = "\t\t<ol>\n";
-	
+
 	foreach($contentsList as $url => $title)
 	{
 		$returnString .= "<li><a href = '#" . $url . "'>" . $title . "</a></li>";
 	}
-	
+
 	$returnString .= "\t\t</ol>\n";
-	
+
 	return $returnString;
 }
 
@@ -234,7 +234,7 @@ function getSubfolders ($currentPath = "")
 {
 	GLOBAL $contentPath;
 	$returnValue = array();
-	
+
 	//I don't see this happening, but just in case, let's bail if we can't find anything
 	if (!file_exists($contentPath . $currentPath. "/"))
 	{
@@ -267,7 +267,7 @@ function getArticleList($currentPage)
 	//TODO: We want reverse lexical ordering for news items (assuming we're using YYYY-MM-DD prefixing for filenames), but normal ordering for everything else
 	$returnValue = array();
 
-	//When somebody gets a 
+	//When somebody gets a
 	if (!file_exists($contentPath . $currentPage . "/"))
 	{
 		$errorState = 1;
@@ -284,7 +284,7 @@ function getArticleList($currentPage)
 			}
 		}
 	}
-	
+
 	return $returnValue;
 }
 
@@ -294,10 +294,10 @@ function getAllArticles($articlePath, $headingsOnly = false)
 
 	$returnValue = "";
 	$contentList = array();
-	
+
 	$parentPath = substr($articlePath, 0, strripos($articlePath, "/") + 1);
 	$callingPath = substr($articlePath, strripos($articlePath, "/") + 1);
-	
+
 	$folders = getSubfolders($parentPath);
 	foreach ($folders as $folder => $subfolder)
 	{
@@ -306,7 +306,7 @@ function getAllArticles($articlePath, $headingsOnly = false)
 			//We're going to wind up in an infinite loop if we do this, so bail.
 		}
 		else
-		{		
+		{
 			$articles = getArticleList($parentPath . $folder);
 			foreach ($articles as $article)
 			{
@@ -321,7 +321,7 @@ function getAllArticles($articlePath, $headingsOnly = false)
 			}
 		}
 	}
-	
+
 	if ($headingsOnly)
 	{
 		return $contentList;
@@ -353,7 +353,7 @@ function getArticleContent($articlePath, $articleSource, $headingsOnly = false)
 	GLOBAL $showSource;
 	GLOBAL $showPostLink;
 	GLOBAL $showTimestamp;
-	
+
 	//If the article we're trying to show doesn't exist, let's tell someone about it
 	if (!file_exists($contentPath . $articlePath . "/" . $articleSource))
 	{
@@ -361,12 +361,12 @@ function getArticleContent($articlePath, $articleSource, $headingsOnly = false)
 		{
 			return "Error";
 		}
-		
+
 		return getArticleError($articleSource, getLocaleString("articleerrortitle"), getLocaleString("articleerrortext"), getLocaleString("articleerrordetails") . $articlePath . "/" . $articleSource);
 	}
 	$text = file_get_contents($contentPath . $articlePath . "/" . $articleSource);
-	
-	
+
+
 	if ($text === false)
 	{
 		//TODO: Localisation
@@ -377,14 +377,14 @@ function getArticleContent($articlePath, $articleSource, $headingsOnly = false)
 		return getArticleError($articleSource, getLocaleString("articleerrortitle"), getLocaleString("articleerrortext"), getLocaleString("articleerrordetails") . $articlePath . "/" . $articleSource);
 
 	}
-	
+
 	if (stripos($text, "_EVERYTHING_") !== false)
 	{
 		return getAllArticles($articlePath, $headingsOnly);
 	}
-	
+
 	$returnString = "<article id = '" . $articleSource . "'>\n";
-	
+
 	//Pull off the heading (it's always the first line)
 	if (stripos($text, "\n") === false)
 	{
@@ -404,7 +404,7 @@ function getArticleContent($articlePath, $articleSource, $headingsOnly = false)
 		{
 			return substr($text, 0, stripos($text, "\n"));
 		}
-		
+
 		$returnString .= "\t<h1>" . substr($text, 0, stripos($text, "\n")) . "</h1>\n";
 		if ($showSource)
 		{
@@ -414,13 +414,13 @@ function getArticleContent($articlePath, $articleSource, $headingsOnly = false)
 		{
 			$returnString .= "\t<p class = 'downloadSourceLink'><a href = '#" . $articleSource . "'>» " . getLocaleString("linktothis") . "</a></p>\n";
 		}
-		
+
 		$text = substr($text, stripos($text, "\n") + 1);
-		
+
 		//break it up by \n\n in case there are multiple text/ul pairs
 		$text = explode("\n\n", $text);
-		
-		
+
+
 		//for each text/ul pair, explode on -----, and explode the first segment on \n (encapsulating in <p>), and explode the second segment on \n parsing as a ul
 		foreach ($text as $segment)
 		{
@@ -437,7 +437,7 @@ function getArticleContent($articlePath, $articleSource, $headingsOnly = false)
 						$returnString .= "\t<p>" . $captionLine . "</p>\n";
 					}
 				}
-				
+
 				//List
 				$list = explode("\n", $elements[1]);
 				unset($list[0]);
@@ -448,7 +448,7 @@ function getArticleContent($articlePath, $articleSource, $headingsOnly = false)
 					if ($listItem != "")
 					{
 						$returnString .= "\t\t<li>";
-			
+
 						if (stripos($listItem, "|") !== false)
 						{
 							$listItem = explode("|", $listItem);
@@ -469,7 +469,7 @@ function getArticleContent($articlePath, $articleSource, $headingsOnly = false)
 					}
 				}
 				$returnString .= "\t</ul>\n";
-				
+
 			}
 			else
 			{
@@ -485,7 +485,7 @@ function getArticleContent($articlePath, $articleSource, $headingsOnly = false)
 			}
 		}
 	}
-	
+
 	if ($showTimestamp)
 	{
 		//Note: This assumes that the server has appropriate and correct timezone information
