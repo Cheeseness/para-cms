@@ -39,21 +39,23 @@ Brief Upgrade Instructions (from v 0.1  to v 0.2)
 4. Add the renamed CSS file to $customCSS[] in config.php
 
 New config.php settings:
-a.  $timeZone
-b.  $locale
-c.  $showSource
-d.  $showPostLink
-e.  $showTimestamp
-f.  $trimPageTitle
-g.  $showParentInMenu
-h.  $twitterBackgroundColour
-i.  $twitterTextColour
-j.  $twitterLinkColour
-k.  $customCSS[]
-l.  $customJS[]
+
+* $timeZone
+* $locale
+* $showSource
+* $showPostLink
+* $showTimestamp
+* $trimPageTitle
+* $showParentInMenu
+* $twitterBackgroundColour
+* $twitterTextColour
+* $twitterLinkColour
+* $customCSS[]
+* $customJS[]
 
     
 The following two lines are required in config.php and must be present after $timeZone and $locale have been set, but before $copyrightText
-    a.  if( isset($timeZone) ) date_default_timezone_set($timeZone);
-    b.  setlocale(LC_ALL, $locale);
+
+1. if( isset($timeZone) ) date_default_timezone_set($timeZone);
+2. setlocale(LC_ALL, $locale);
 
