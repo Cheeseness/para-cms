@@ -69,7 +69,7 @@ $errorState = 0;
 		}
 	}
 	?>
-	<script type = 'text/javascript' src = 'scripts/default.js'></script>
+
 	<?php
 	if (isset($customJS))
 	{
