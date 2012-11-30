@@ -30,7 +30,7 @@ $strings = array(
 	"flagranterrordetails"	=> "Huono osoite tai konfiguraatio.",
 	"articleerrortitle"	=> "Artikkelia ei löytynyt",
 	"articleerrortext"	=> "Virhe yritettäessä näyttää artikkelia.",
-	"articleerrordetails"	=> "Pyydettyä artikkelia ei löytynyt sisältöpolusta : ",
+	"articleerrordetails"	=> "Pyydettyä artikkelia ei löytynyt sisältöpolusta: ",
 );
 
 ?>
