@@ -23,14 +23,13 @@ function deTraverse($path)
 {
 	$arr = explode('/', $path);
 	foreach ($arr as $key => $value) {
-		if ($value === "..") {
+		if ($value === ".." || $value === "." || empty($value)) {
 			unset($arr[$key]);
 		}
 		unset($key);
 		unset($value);
 	}
 	$path = implode('/', $arr);
-	$path = trim($path, '/');
 	return $path;
 }
 
