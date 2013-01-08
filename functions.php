@@ -149,10 +149,10 @@ function buildNavMenu($menuArray, $currentPage = "")
 		else
 		{
 			$menuURL = $menuContent;
+			$menuTitleFull = str_replace("_", " ", $menuURL);
 			$class = "";
 
-			//FIXME: This if seems excessive.
-			if ((substr($currentPage, stripos($currentPage, "/")) == $menuTitle) || (substr($currentPage, stripos($currentPage, "/") + 1) == $menuTitle))
+			if ($currentPage == $menuTitleFull)
 			{
 				$class .= " current";
 			}
