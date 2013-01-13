@@ -19,17 +19,17 @@ along with Para CMS.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 $strings = array(
-	"contentmenu"		=> "Zawartość",
-	"downloadsource"	=> "Pobierz kod źródłowy",
-	"linktothis"		=> "Link do tego",
-	"lastupdated"		=> "Ostatnia aktualizacja",
+	"contentmenu"		=> "Obsah",
+	"downloadsource"	=> "Stáhni zdrojový kod",
+	"linktothis"		=> "Odkaz na přispěvek",
+	"lastupdated"		=> "Poslední aktualizace",
 	"dateformat"		=> "%d %b %Y",
-	"flagranterrortitle"	=> "Rażący błąd!",
-	"flagranterrortext"	=> "Coś poszło bardzo źle lub próbujesz oglądnąć coś co nie istnieje. Proszę spróbować użyc przycisk wsztecz twojej przeglądarki lub wrócić na stronę <a href = 'index.php'>" . getPageTitle($defaultPage) . "</a>",
-	"flagranterrordetails"	=> "Zły URL lub konfiguracja.",
-	"articleerrortitle"	=> "Artykuł nie był znaleziony",
-	"articleerrortext"	=> "Wystąpił błąd podczas wyświetlania artykułu.",
-	"articleerrordetails"	=> "Żądany artykuł nie był znaleziony w: ",
+	"flagranterrortitle"	=> "Křiklavá chyba!",
+	"flagranterrortext"	=> "Něco šlo velmi špatně nebo snažíš se prohlídnout něco co neexistuje. Prosím zkus použit tlačtiko zpět svého prohližeče nebo vratit se na stránku <a href = 'index.php'>" . getPageTitle($defaultPage) . "</a>",
+	"flagranterrordetails"	=> "Špatný URL nebo konfigurace.",
+	"articleerrortitle"	=> "Članek nebyl nalezen",
+	"articleerrortext"	=> "Nastoupila chyba při snáze ukázaní članku.",
+	"articleerrordetails"	=> "Žadaný članek nebyl nalezený v:",
 );
 
 ?>
