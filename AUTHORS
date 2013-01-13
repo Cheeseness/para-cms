@@ -25,9 +25,13 @@ AUTHORS:
 		./localisation/fi/custom.php
 		./localisation/fi/default.php
 	Stanisław "Soeb" Gackowski
-		./localisation/cs/CS.php
+		./localisation/cs/CZ.php
 		./localisation/cs/custom.php
 		./localisation/cs/default.php
 		./localisation/pl/PL.php
 		./localisation/pl/custom.php
 		./localisation/pl/default.php
+	Marcus "powrtoch" Møller
+		./localisation/da/DK.php
+		./localisation/da/custom.php
+		./localisation/da/default.php
