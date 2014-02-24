@@ -111,38 +111,13 @@ else
 ?>
 </div>
 <?php
-if (isset($twitterAccount))
+if (isset($twitterWidgetID))
 {
 ?>
 <div id = 'twitterWidget'>
-<script charset="utf-8" src="http://widgets.twimg.com/j/2/widget.js"></script>
-<script>
-new TWTR.Widget({
-  version: 2,
-  type: 'profile',
-  rpp: 6,
-  interval: 30000,
-  width: 250,
-  height: 500,
-  theme: {
-    shell: {
-      background: '<?php echo $twitterBackgroundColour; ?>',
-      color: '<?php echo $twitterLinkColour; ?>'
-    },
-    tweets: {
-      background: '<?php echo $twitterBackgroundColour; ?>',
-      color: '<?php echo $twitterTextColour; ?>',
-      links: '<?php echo $twitterLinkColour; ?>'
-    }
-  },
-  features: {
-    scrollbar: false,
-    loop: false,
-    live: true,
-    behavior: 'all'
-  }
-}).render().setUser('<?php echo $twitterAccount;?>').start();
-</script>
+<h1><?php echo $twitterHeading; ?></h1>
+<a class="twitter-timeline" href="https://twitter.com/twitterapi" data-widget-id="<?php echo $twitterWidgetID; ?>" data-chrome="<?php echo $twitterChromeOpts; ?>" data-theme="<?php echo $twitterTheme; ?>" data-link-color="<?php echo $twitterLinkColour; ?>" data-tweet-limit="<?php echo $twitterTweetLimit; ?>" data-border-color="<?php echo $twitterBorderColour; ?>"></a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 </div>
 <?php
 }
