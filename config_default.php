@@ -30,6 +30,9 @@ $contentPath = "content/";
 //This is what will immediately follow links in lists before any additional text
 $linkSeparator = "";
 
+//This reverses the order of posts prefixed with YYYY-MM-DD dates. Useful for having new blog posts listed first
+$reverseDated = true;
+
 //This adds download links for posts. Note that they're in the source format from which Para parses them
 $showSource = true;
 

@@ -263,9 +263,12 @@ function getArticleList($currentPage)
 {
 	GLOBAL $contentPath;
 	GLOBAL $errorState;
+	GLOBAL $reverseDated;
 
-	//TODO: We want reverse lexical ordering for news items (assuming we're using YYYY-MM-DD prefixing for filenames), but normal ordering for everything else
+	//We want reverse lexical ordering for news items (assuming we're using YYYY-MM-DD prefixing for filenames), but normal ordering for everything else, so let's keep them separate and combine later
 	$returnValue = array();
+	$datePosts = array();
+	$counter = 0;
 
 	//When somebody gets a
 	if (!file_exists($contentPath . $currentPage . "/"))
@@ -280,12 +283,25 @@ function getArticleList($currentPage)
 		{
 			if (strripos($entry, ".txt", strlen($entry) - 4) !== false)
 			{
-				$returnValue[] = $entry;
+				//Check for YYYY-MM-DD style prefixes
+				if (preg_match("/^(\d{4})-(\d{2})-(\d{2})/", $entry))
+				{
+					$datePosts[$counter] = $entry;
+					$counter++;
+				}
+				else
+				{
+					$returnValue[$counter] = $entry;
+					$counter++;
+				}
 			}
 		}
 	}
-
-	return $returnValue;
+	if ($reverseDated)
+	{
+		$datePosts = array_reverse($datePosts, TRUE);
+	}
+	return $returnValue + $datePosts;
 }
 
 //TODO: This is a dodgey quick-fix for SteamDRM. Need to come up with a nicer solution for this (and also make it multilevel)
