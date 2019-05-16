@@ -21,16 +21,18 @@ along with Para CMS.  If not, see <http://www.gnu.org/licenses/>.
 // a function for countering directory traversal
 function deTraverse($path)
 {
+	// in case people are silly and use backslashes, or someone runs this
+	// on a Windows box, we'll turn them into normal slashes
+	$path = str_replace('\\', '/', $path);
 	$arr = explode('/', $path);
 	foreach ($arr as $key => $value) {
-		if ($value === "..") {
+		if ($value === ".." || $value === "." || empty($value)) {
 			unset($arr[$key]);
 		}
 		unset($key);
 		unset($value);
 	}
 	$path = implode('/', $arr);
-	$path = trim($path, '/');
 	return $path;
 }
 

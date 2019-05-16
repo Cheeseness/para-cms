@@ -20,17 +20,17 @@ along with Para CMS.  If not, see <http://www.gnu.org/licenses/>.
 GLOBAL $defaultPage;
 
 $strings = array(
-	"contentmenu"		=> "Sisällysluettelo",
-	"downloadsource"	=> "Lataa lähdekoodi",
-	"linktothis"		=> "Linkki tähän",
-	"lastupdated"		=> "Viimeksi päivitetty",
-	"dateformat"		=> "%d.%m.%Y",
-	"flagranterrortitle"	=> "Huutava virhe!",
-	"flagranterrortext"	=> "Jokin meni erittäin pahasti pieleen tai yrität tarkastella jotakin olematonta. Yritä painaa selaimesi takaisin-nappia tai palaa sivulle <a href = 'index.php'>" . getPageTitle($defaultPage) . "</a>",
-	"flagranterrordetails"	=> "Huono osoite tai konfiguraatio.",
-	"articleerrortitle"	=> "Artikkelia ei löytynyt",
-	"articleerrortext"	=> "Virhe yritettäessä näyttää artikkelia.",
-	"articleerrordetails"	=> "Pyydettyä artikkelia ei löytynyt sisältöpolusta: ",
+	"contentmenu"		=> "Indhold",
+	"downloadsource"	=> "Hent Kilde",
+	"linktothis"		=> "Link Til Dette",
+	"lastupdated"		=> "Sidst opdateret",
+	"dateformat"		=> "%d %b %Y",
+	"flagranterrortitle"	=> "Alvorlig Fejl!",
+	"flagranterrortext"	=> "Noget gik meget galt eller du prøver på at vise noget der ikke findes. Benyt din browsers tilbage-knap eller vend tilbage til <a href = 'index.php'>" . getPageTitle($defaultPage) . " siden</a>",
+	"flagranterrordetails"	=> "Forkert URL eller konfiguration.",
+	"articleerrortitle"	=> "Artikel Ikke Fundet",
+	"articleerrortext"	=> "Der opstod en fejl under forsøget på at vise en artikel.",
+	"articleerrordetails"	=> "Den ønskede artikel blev ikke fundet i indholds stien: ",
 );
 
 ?>

@@ -48,14 +48,16 @@ $trimPageTitle = false;
 //This'll make the parent pages that have subpages be accessible through the nav menu.
 $showParentInMenu = false;
 
-//If you want your twitter feed to be visible on the site, uncomment this and put your twitter username in
-//$twitterAccount = "yourtwitteraccount";
+//If you want your twitter feed to be visible on the site, uncomment this and put your twitter widget's ID in. Visit here to generate one: https://twitter.com/settings/widgets
+//$twitterWidgetID = "TWITTER-WIDGET-ID";
 
-//These variables set the colours used within the twitter feed widget and are unused if the $twitterAccount variable is not set.
-$twitterBackgroundColour = "#a0a078";
-$twitterTextColour = "#505020";
+//These variables set the options used by the twitter feed widget and are unused if the $twitterWidgetID variable is not set. Descriptions can be found here: https://dev.twitter.com/docs/embedded-timelines#customization
+$twitterHeading = "<a href = 'http://twitter.com/' title = 'Tweets'>Tweets</a>";
+$twitterBorderColour = "#A0A078";
 $twitterLinkColour = "#efefef";
-
+$twitterChromeOpts = "nofooter transparent noheader";
+$twitterTweetLimit = 5;
+$twitterTheme = "light";
 
 //If you want to have links to external sites in your menu, add them here using the same format as the next line. You can comment out or delete this one if want.
 $externalLinks["Source/Contribute"] = "https://github.com/Cheeseness/para-cms";
